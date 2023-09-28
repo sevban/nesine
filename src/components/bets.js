@@ -32,17 +32,8 @@ function Bets() {
         getData();
     }, []);
 
-    const highlightCell = (cell) => {
-        if (cell.classList.contains("active")) {
-            cell.classList.remove("active");
-        } 
-        else {
-            const cells = cell.parentElement.querySelectorAll("td");
-            cells.forEach(element => {
-                element.classList.remove("active")
-            });
-            cell.classList.toggle("active");
-        }
+    const highlightCell = (id, value) => {
+        return context.store.cart.some((ci) => ci.NID === id && ci.value === value) ? "active" : "";
     }
 
     return (
@@ -51,7 +42,7 @@ function Bets() {
             <table>
                 <thead>
                     <tr>
-                        <th>Event Count</th>
+                        <th>Event Count: {data.length}</th>
                         <th>Yorumlar</th>
                         <th></th>
                         <th>1</th>
@@ -97,22 +88,22 @@ function Bets() {
                                 <td>+99</td>
                             </tr>
                             <tr>
-                                <td className='text-left'>{item.C} {item.T} {item.N}</td>
+                                <td className='text-left'><b>{item.C}</b> {item.T} {item.N}</td>
                                 <td className='text-left'>Yorumlar</td>
                                 <td>{item.OCG[1].MBS}</td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[1].OC[0].O); highlightCell(e.target);}}>{item.OCG[1].OC[0].O}</td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[1].OC[1].O); highlightCell(e.target);}}>{item.OCG[1].OC[1].O}</td>
+                                <td className={ highlightCell(item.NID, item.OCG[1].OC[0].O) } onClick={(e)=> {context.updateCart(item, item.OCG[1].OC[0].O); }}>{item.OCG[1].OC[0].O}</td>
+                                <td className={ highlightCell(item.NID, item.OCG[1].OC[1].O) } onClick={(e)=> {context.updateCart(item, item.OCG[1].OC[1].O); }}>{item.OCG[1].OC[1].O}</td>
                                 <td></td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[5].OC[25].O); highlightCell(e.target);}}>{item.OCG[5].OC[25].O}</td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[5].OC[26].O); highlightCell(e.target);}}>{item.OCG[5].OC[26].O}</td>
-                                <td></td>
-                                <td></td>
+                                <td className={ highlightCell(item.NID, item.OCG[5].OC[25].O) } onClick={(e)=> {context.updateCart(item, item.OCG[5].OC[25].O); }}>{item.OCG[5].OC[25].O}</td>
+                                <td className={ highlightCell(item.NID, item.OCG[5].OC[26].O) } onClick={(e)=> {context.updateCart(item, item.OCG[5].OC[26].O); }}>{item.OCG[5].OC[26].O}</td>
                                 <td></td>
                                 <td></td>
                                 <td></td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[2].OC[3].O); highlightCell(e.target);}}>{item.OCG[2].OC[3].O}</td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[2].OC[4].O); highlightCell(e.target);}}>{item.OCG[2].OC[4].O}</td>
-                                <td onClick={(e)=> {context.actions.add(item, item.OCG[2].OC[5].O); highlightCell(e.target);}}>{item.OCG[2].OC[5].O}</td>
+                                <td></td>
+                                <td></td>
+                                <td className={ highlightCell(item.NID, item.OCG[2].OC[3].O) } onClick={(e)=> {context.updateCart(item, item.OCG[2].OC[3].O); }}>{item.OCG[2].OC[3].O}</td>
+                                <td className={ highlightCell(item.NID, item.OCG[2].OC[4].O) } onClick={(e)=> {context.updateCart(item, item.OCG[2].OC[4].O); }}>{item.OCG[2].OC[4].O}</td>
+                                <td className={ highlightCell(item.NID, item.OCG[2].OC[5].O) } onClick={(e)=> {context.updateCart(item, item.OCG[2].OC[5].O); }}>{item.OCG[2].OC[5].O}</td>
                                 <td></td>
                                 <td></td>
                                 <td>3</td>
