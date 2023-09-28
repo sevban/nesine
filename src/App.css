@@ -1,0 +1,76 @@
+body {
+  font: 16px Tahoma, Arial, sans-serif;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.app {
+  position: relative;
+}
+
+/* bets */
+
+.bets table {
+  border-collapse: separate;
+  border-spacing: 0;
+  width: 100%;
+}
+
+.bets table {
+  border: 1px solid #ccc;
+}
+
+.bets table th,
+.bets table td {
+  border: solid #ccc;
+  border-width: 0 1px 1px 0;
+  padding: 10px;
+}
+
+.bets thead th {
+  background: #ddd;
+  position: sticky;
+  top: 0;
+}
+
+.bets tbody tr {
+  text-align: center;
+}
+
+.bets tbody tr:hover {
+  background: #eee;
+}
+
+.bets tbody td {
+  cursor: pointer;
+}
+
+.bets tbody td.active {
+  background: yellow;
+}
+
+/* cart */
+
+.cart {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  border: 1px solid #000;
+  max-width: 500px;
+  padding: 20px 20px 10px 20px;
+  background: #fff;
+}
+
+.cart-item {
+  margin-bottom: 10px;
+}
+
+.cart span {
+  margin-right: 10px;
+}
+
+.cart-total {
+  font-size: 20px;
+}
