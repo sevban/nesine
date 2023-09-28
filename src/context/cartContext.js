@@ -22,7 +22,7 @@ export const CartContextWrapper = (props) => {
         setStore((prevStore) => (
             { 
                 ...prevStore,
-                total: prevStore.cart.reduce((total, item) => Math.ceil(total * item.value), 1) === 1 ? 0 : prevStore.cart.reduce((total, item) => Math.ceil(total * item.value), 1)
+                total: prevStore.cart.reduce((total, item) => Math.ceil(total * item.value), 1)
             }
         ));
     }

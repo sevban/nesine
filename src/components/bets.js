@@ -38,7 +38,8 @@ function Bets() {
 
     return (
         <div className="bets">
-            {loading ? <div>Yükleniyor...</div> : 
+            <div className={`loading ${!loading && "done"}`}>Yükleniyor...</div>
+            {!loading && 
             <table>
                 <thead>
                     <tr>

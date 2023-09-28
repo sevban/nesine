@@ -6,6 +6,28 @@ body {
   text-align: left;
 }
 
+.loading {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 50px;
+  visibility: visible;
+  transition: ease all 0.7s;
+  background-color: #efefef;
+  opacity: 1;
+  background-image:  linear-gradient(#e1e1e1 2px, transparent 2px), linear-gradient(90deg, #e1e1e1 2px, transparent 2px), linear-gradient(#e1e1e1 1px, transparent 1px), linear-gradient(90deg, #e1e1e1 1px, #efefef 1px);
+  background-size: 50px 50px, 50px 50px, 10px 10px, 10px 10px;
+  background-position: -2px -2px, -2px -2px, -1px -1px, -1px -1px;
+}
+
+.loading.done {
+  opacity: 0;
+  visibility: hidden;
+}
+
 .app {
   position: relative;
 }
